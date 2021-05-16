@@ -3,6 +3,7 @@
     "short_name": "Natural History Concentration",
     "start_url": ".",
     "display": "fullscreen",
+    "orientation":  "landscape",
     "background_color": "#2A3443",
     "description": "A memory game featuring exhibits from the Portsmouth Museum of Natural History",
     "theme_color": "#2A3443",
