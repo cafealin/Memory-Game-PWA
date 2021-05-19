@@ -13,11 +13,15 @@ h1 {
 	font-family: 'Permanent Marker', cursive;
 }
 
+.image {
+	height: 97%;
+	width: auto;
+	border-radius: 5px;
+}
 
 /*
  * Styles for the deck of cards
  */
-
 
 .deck {
 	width: 30rem;
@@ -56,13 +60,17 @@ h1 {
 	animation-duration: .75s;
 }
 
+.deck .card.closed {
+	filter: brightness(0%);
+}
+
 .deck .card.show {
 	font-size: 33px;
 }
 
 .deck .card.match {
 	cursor: default;
-	background: #E5F720;
+	background: #23ff48;
 	font-size: 33px;
 	animation-name: rubberBand;
 	-webkit-backface-visibility: visible !important;
@@ -141,6 +149,7 @@ h1 {
 .overlay:target {
 	visibility: visible;
 	opacity: 1;
+	overflow-y: hidden;
 }
   
 .popup {
@@ -152,6 +161,7 @@ h1 {
 	position: relative;
 	transition: all 5s ease-in-out;
 	font-family: 'Gloria Hallelujah', cursive;
+	overflow-y: hidden;
 }
   
 .popup h2 {
@@ -162,10 +172,10 @@ h1 {
 
 .popup .close {
 	position: absolute;
-	top: 20px;
+	top: 0;
 	right: 30px;
 	transition: all 200ms;
-	font-size: 30px;
+	font-size: 5rem;
 	font-weight: bold;
 	text-decoration: none;
 	color: #333;
@@ -178,7 +188,7 @@ h1 {
 .popup .content-1,
 .content-2 {
 	max-height: 30%;
-	overflow: auto;
+	overflow-y: hidden;
 	text-align: center;
 }
 

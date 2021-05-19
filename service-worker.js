@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["css/app.css","a5b1d053d001951869b954697aa8c49f"],["css/app2.css","e75ffc88fbed74ce030797ac4fe48bb0"],["img/icons/icon-placeholder.png","ccdf77fdf1f90c6c142492a80575b4eb"],["index.html","0ffeff0ffb9d4bbec8fb9cbe157322b7"],["js/app.js","711a9e7d745143317f1b38792d60ba2c"],["js/app1.js","3299d75f644c3618b9b705f04955b8e1"],["manifest.json","dd062bffc956327bb25deb0467bef86c"]];
+var precacheConfig = [["Memory-Game-PWA/css/app.css","b2403b02539b23e6a126350e4b7e8ea8"],["Memory-Game-PWA/css/app2.css","e75ffc88fbed74ce030797ac4fe48bb0"],["Memory-Game-PWA/img/icons/icon-placeholder.png","ccdf77fdf1f90c6c142492a80575b4eb"],["Memory-Game-PWA/index.html","0ffeff0ffb9d4bbec8fb9cbe157322b7"],["Memory-Game-PWA/js/app.js","711a9e7d745143317f1b38792d60ba2c"],["Memory-Game-PWA/js/app1.js","3299d75f644c3618b9b705f04955b8e1"],["Memory-Game-PWA/manifest.json","3a71712fe869221f1e541f35dc67f1d2"],["css/app.css","ef3bd641ace8ea218ad47aea02fe7aca"],["css/app2.css","e75ffc88fbed74ce030797ac4fe48bb0"],["img/icons/icon-placeholder.png","ccdf77fdf1f90c6c142492a80575b4eb"],["img/racoon.png","a66861516d62c6b5426e88fbc9f679dc"],["index.html","f040fda912203df47bafc47e020e798c"],["js/app.js","711a9e7d745143317f1b38792d60ba2c"],["js/app1.js","a819c272ca95c13d50196d53445f5263"],["manifest.json","3a71712fe869221f1e541f35dc67f1d2"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 

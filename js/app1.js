@@ -90,7 +90,9 @@ var displayCard = function () {
     this.classList.toggle("open");
     this.classList.toggle("show");
     this.classList.toggle("disabled");
+    this.classList.remove("closed");
 };
+
 
 
 // @description add opened cards to OpenedCards list and check if cards are match or not
@@ -112,8 +114,8 @@ function cardOpen() {
 function matched() {
     openedCards[0].classList.add("match", "disabled");
     openedCards[1].classList.add("match", "disabled");
-    openedCards[0].classList.remove("show", "open", "no-event");
-    openedCards[1].classList.remove("show", "open", "no-event");
+    openedCards[0].classList.remove("show", "open", "no-event", "closed");
+    openedCards[1].classList.remove("show", "open", "no-event", "closed");
     openedCards = [];
 }
 
@@ -126,6 +128,8 @@ function unmatched() {
     setTimeout(function () {
         openedCards[0].classList.remove("show", "open", "no-event", "unmatched");
         openedCards[1].classList.remove("show", "open", "no-event", "unmatched");
+        openedCards[0].classList.add("closed");
+        openedCards[1].classList.add("closed");
         enable();
         openedCards = [];
     }, 1100);
@@ -204,7 +208,7 @@ function startTimer() {
 
 // @description congratulations when all cards match, show modal and moves, time and rating
 function congratulations() {
-    if (matchedCard.length == 16) {
+    if (matchedCard.length == 12) {
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
