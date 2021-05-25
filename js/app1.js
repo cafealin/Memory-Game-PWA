@@ -257,3 +257,9 @@ if ("serviceWorker" in navigator) {
     // register service worker
     navigator.serviceWorker.register("service-worker.js");
 }
+
+let fullscreen = document.querySelector("#fullscreen");
+
+if (fullscreen.requestFullscreen) {
+  fullscreen.requestFullscreen();
+}

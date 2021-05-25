@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true" />
     <title>Memory Game</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,14 +21,17 @@
 </head>
 
 <body>
-
+    <div id="turn">
+        Please rotate your device!
+    </div>
+    
     <div class="container">
         <div class="row">
             <div class="col-1">
                 <div class="collection mt-5">
-                    <button><a href="collection.html"><i class="fa fa-bars"></i></a></button>
+                    <a href="collection.html"></a><button class="btn btn-secondary"><i class="fa fa-bars"></i></button></a>
                 </div>
-                <h4>collection</h4>
+                <h4 class="text-center">collection</h4>
             </div>
 
             <div class="col-10">
@@ -87,9 +92,9 @@
                 </section>
             </div>
 
-            <div class="col-1">
+            <div class="col-1 mx-auto">
                 <div class="restart mt-5" onclick=startGame()>
-                    <button><i class="fa fa-repeat"></i></button>
+                    <button class="btn btn-secondary btn-lg"><i class="fa fa-repeat"></i></button>
                 </div>
                 <h4>restart</h4>
             </div>
