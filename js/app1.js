@@ -278,7 +278,7 @@ for (var i = 0; i < cards.length; i++) {
 
 if ("serviceWorker" in navigator) {
     // register service worker
-    navigator.serviceWorker.register("/service-worker.js");
+    navigator.serviceWorker.register("service-worker.js");
 }
 
 // prompt app install
