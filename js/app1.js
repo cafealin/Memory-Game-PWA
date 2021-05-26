@@ -1,17 +1,18 @@
-$(document).ready(function(){
+$(document).ready(function () {
+    // now works as you would expect
     $("#myModal").modal('show');
 });
 
-$(document).ready(function() {
-    $(window).on('resize', function(){
-      if(screen.width === window.innerWidth){
-        // this is full screen
-        $("#myModal").modal('hide');
-      } else {
-        $("#myModal").modal('show');
-      }
+$(document).ready(function () {
+    $(window).on('resize', function () {
+        if (screen.width === window.innerWidth) {
+            // this is full screen
+            $("#myModal").modal('hide');
+        } else {
+            $("#myModal").modal('show');
+        }
     });
-  });
+});
 
 var goFS = document.getElementById("fs-btn");
 goFS.addEventListener("click", function () {
