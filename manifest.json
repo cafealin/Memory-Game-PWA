@@ -16,6 +16,6 @@
     "background_color": "#77d66a",
     "display": "fullscreen",
     "orientation": "landscape",
-    "scope": "/",
-    "start_url": "/"
+    "scope": "https://cafealin.github.io/Memory-Game-PWA/",
+    "start_url": "https://cafealin.github.io/Memory-Game-PWA/"
 }
