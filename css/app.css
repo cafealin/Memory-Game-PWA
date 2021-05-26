@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
 	overflow-y: hidden;
 	overflow-x: hidden;
 	height: 100%;
@@ -36,6 +37,13 @@ h4 {
 	border-radius: 5px;
 }
 
+#myModal {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
 /*
  * Styles for the deck of cards
  */
@@ -56,7 +64,8 @@ h4 {
 .deck .card {
 	height: 6rem;
 	width: 6rem;
-	background: #000;;
+	background: #000;
+	;
 	font-size: 0;
 	color: #ffffff;
 	border-radius: 5px;
@@ -168,7 +177,7 @@ h4 {
 	opacity: 1;
 	overflow-y: hidden;
 }
-  
+
 .popup {
 	margin: 70px auto;
 	padding: 20px;
@@ -180,7 +189,7 @@ h4 {
 	font-family: 'Gloria Hallelujah', cursive;
 	overflow-y: hidden;
 }
-  
+
 .popup h2 {
 	margin-top: 0;
 	color: #333;
@@ -230,14 +239,28 @@ h4 {
 	border-radius: 5px;
 }
 
-@media only screen and (orientation:portrait){
-	#turn{ display:block; }
-	.container{ display:none; }
+.hidden {
+	display: none !important;
 }
 
-@media only screen and (orientation:landscape){
-	#turn{ display:none; }
-	.container{ display:block; }
+@media only screen and (orientation:portrait) {
+	#turn {
+		display: block;
+	}
+
+	.container {
+		display: none;
+	}
+}
+
+@media only screen and (orientation:landscape) {
+	#turn {
+		display: none;
+	}
+
+	.container {
+		display: block;
+	}
 }
 
 /* animations */
@@ -332,7 +355,9 @@ h4 {
 ****************/
 
 @media (min-height: 768px) {
-	html, body {
+
+	html,
+	body {
 		padding-top: 25px;
 	}
 
@@ -352,7 +377,9 @@ h4 {
 }
 
 @media (min-height: 1024px) {
-	html, body {
+
+	html,
+	body {
 		padding-top: 50px;
 	}
 
@@ -368,7 +395,9 @@ h4 {
 }
 
 @media (min-height: 1200px) {
-	html, body {
+
+	html,
+	body {
 		padding-top: 50px;
 	}
 

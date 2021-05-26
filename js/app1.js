@@ -1,3 +1,24 @@
+$(document).ready(function(){
+    $("#myModal").modal('show');
+});
+
+$(document).ready(function() {
+    $(window).on('resize', function(){
+      if(screen.width === window.innerWidth){
+        // this is full screen
+        $("#myModal").modal('hide');
+      } else {
+        $("#myModal").modal('show');
+      }
+    });
+  });
+
+var goFS = document.getElementById("fs-btn");
+goFS.addEventListener("click", function () {
+    document.documentElement.requestFullscreen();
+    $("#myModal").modal('hide');
+}, false);
+
 // cards array holds all cards
 let card = document.getElementsByClassName("card");
 let cards = [...card];
@@ -66,6 +87,7 @@ function startGame() {
             deck.appendChild(item);
         });
         cards[i].classList.remove("show", "open", "match", "disabled");
+        cards[i].classList.add("closed");
     }
     // reset moves
     moves = 0;
@@ -241,6 +263,7 @@ function closeModal() {
 // @desciption for user to play Again 
 function playAgain() {
     modal.classList.remove("show");
+    modal.classList.add("closed");
     startGame();
 }
 
@@ -255,11 +278,42 @@ for (var i = 0; i < cards.length; i++) {
 
 if ("serviceWorker" in navigator) {
     // register service worker
-    navigator.serviceWorker.register("service-worker.js");
+    navigator.serviceWorker.register("/service-worker.js");
 }
 
-let fullscreen = document.querySelector("#fullscreen");
+// prompt app install
+const divInstall = document.getElementById('installContainer');
+const butInstall = document.getElementById('butInstall');
 
-if (fullscreen.requestFullscreen) {
-  fullscreen.requestFullscreen();
-}
+window.addEventListener('beforeinstallprompt', (event) => {
+    console.log('👍', 'beforeinstallprompt', event);
+    // Stash the event so it can be triggered later.
+    window.deferredPrompt = event;
+    // Remove the 'hidden' class from the install button container
+    divInstall.classList.toggle('hidden', false);
+});
+
+butInstall.addEventListener('click', async () => {
+    console.log('👍', 'butInstall-clicked');
+    const promptEvent = window.deferredPrompt;
+    if (!promptEvent) {
+        // The deferred prompt isn't available.
+        return;
+    }
+    // Show the install prompt.
+    promptEvent.prompt();
+    // Log the result
+    const result = await promptEvent.userChoice;
+    console.log('👍', 'userChoice', result);
+    // Reset the deferred prompt variable, since
+    // prompt() can only be called once.
+    window.deferredPrompt = null;
+    // Hide the install button.
+    divInstall.classList.toggle('hidden', true);
+});
+
+window.addEventListener('appinstalled', (event) => {
+    console.log('👍', 'appinstalled', event);
+    // Clear the deferredPrompt so it can be garbage collected
+    window.deferredPrompt = null;
+});
