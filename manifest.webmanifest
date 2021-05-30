@@ -1,7 +1,8 @@
 {
   "name": "Natural History Card Match",
   "short_name": "Animal Match",
-  "start_url": ".",
+  "scope": "/Memory-Game-PWA/",
+  "start_url": "/Memory-Game-PWA/index.html",
   "display": "fullscreen",
   "background_color": "#358a55",
   "description": "Memory matching game for Portsmouth Natural History Museum",

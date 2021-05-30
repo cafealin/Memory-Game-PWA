@@ -1,3 +1,25 @@
+$(document).ready(function () {
+    // now works as you would expect
+    $("#myModal").modal('show');
+});
+
+$(document).ready(function () {
+    $(window).on('resize', function () {
+        if (screen.width === window.innerWidth) {
+            // this is full screen
+            $("#myModal").modal('hide');
+        } else {
+            $("#myModal").modal('show');
+        }
+    });
+});
+
+var goFS = document.getElementById("fs-btn");
+goFS.addEventListener("click", function () {
+    document.documentElement.requestFullscreen();
+    $("#myModal").modal('hide');
+}, false);
+
 // cards array holds all cards
 let card = document.getElementsByClassName("card");
 let cards = [...card];
@@ -66,6 +88,7 @@ function startGame() {
             deck.appendChild(item);
         });
         cards[i].classList.remove("show", "open", "match", "disabled");
+        cards[i].classList.add("closed");
     }
     // reset moves
     moves = 0;
@@ -90,7 +113,9 @@ var displayCard = function () {
     this.classList.toggle("open");
     this.classList.toggle("show");
     this.classList.toggle("disabled");
+    this.classList.remove("closed");
 };
+
 
 
 // @description add opened cards to OpenedCards list and check if cards are match or not
@@ -112,8 +137,8 @@ function cardOpen() {
 function matched() {
     openedCards[0].classList.add("match", "disabled");
     openedCards[1].classList.add("match", "disabled");
-    openedCards[0].classList.remove("show", "open", "no-event");
-    openedCards[1].classList.remove("show", "open", "no-event");
+    openedCards[0].classList.remove("show", "open", "no-event", "closed");
+    openedCards[1].classList.remove("show", "open", "no-event", "closed");
     openedCards = [];
 }
 
@@ -126,6 +151,8 @@ function unmatched() {
     setTimeout(function () {
         openedCards[0].classList.remove("show", "open", "no-event", "unmatched");
         openedCards[1].classList.remove("show", "open", "no-event", "unmatched");
+        openedCards[0].classList.add("closed");
+        openedCards[1].classList.add("closed");
         enable();
         openedCards = [];
     }, 1100);
@@ -204,7 +231,7 @@ function startTimer() {
 
 // @description congratulations when all cards match, show modal and moves, time and rating
 function congratulations() {
-    if (matchedCard.length == 16) {
+    if (matchedCard.length == 12) {
         clearInterval(interval);
         finalTime = timer.innerHTML;
 
@@ -237,6 +264,7 @@ function closeModal() {
 // @desciption for user to play Again 
 function playAgain() {
     modal.classList.remove("show");
+    modal.classList.add("closed");
     startGame();
 }
 
@@ -248,3 +276,56 @@ for (var i = 0; i < cards.length; i++) {
     card.addEventListener("click", cardOpen);
     card.addEventListener("click", congratulations);
 };
+
+window.addEventListener('load', e => {
+    registerSW();
+});
+
+async function registerSW() {
+    if ('serviceWorker' in navigator) {
+        try {
+            await navigator.serviceWorker.register('./service-worker.js');
+        } catch (e) {
+            alert('ServiceWorker registration failed. Sorry about that.');
+        }
+    } else {
+        document.querySelector('.alert').removeAttribute('hidden');
+    }
+}
+
+// prompt app install
+const divInstall = document.getElementById('installContainer');
+const butInstall = document.getElementById('butInstall');
+
+window.addEventListener('beforeinstallprompt', (event) => {
+    console.log('👍', 'beforeinstallprompt', event);
+    // Stash the event so it can be triggered later.
+    window.deferredPrompt = event;
+    // Remove the 'hidden' class from the install button container
+    divInstall.classList.toggle('hidden', false);
+});
+
+butInstall.addEventListener('click', async () => {
+    console.log('👍', 'butInstall-clicked');
+    const promptEvent = window.deferredPrompt;
+    if (!promptEvent) {
+        // The deferred prompt isn't available.
+        return;
+    }
+    // Show the install prompt.
+    promptEvent.prompt();
+    // Log the result
+    const result = await promptEvent.userChoice;
+    console.log('👍', 'userChoice', result);
+    // Reset the deferred prompt variable, since
+    // prompt() can only be called once.
+    window.deferredPrompt = null;
+    // Hide the install button.
+    divInstall.classList.toggle('hidden', true);
+});
+
+window.addEventListener('appinstalled', (event) => {
+    console.log('👍', 'appinstalled', event);
+    // Clear the deferredPrompt so it can be garbage collected
+    window.deferredPrompt = null;
+});
