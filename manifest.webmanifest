@@ -1,14 +1,16 @@
 {
-    "name": "Natural History Memory Game",
-    "short_name": "Animal Match",
-    "lang": "en-GB",
-    "start_url": "/",
-    "display": "fullscreen",
-    "theme_color": "#358a55",
-    "icons": [
-      {
-        "src": "./icon-512x512.png",
-        "sizes": "512x512"
-      }
-    ]
-  }
+  "name": "Natural History Card Match",
+  "short_name": "Animal Match",
+  "start_url": ".",
+  "display": "fullscreen",
+  "background_color": "#358a55",
+  "description": "Memory matching game for Portsmouth Natural History Museum",
+  "theme_color": "#358a55",
+  "icons": [
+    {
+      "src": "./icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
