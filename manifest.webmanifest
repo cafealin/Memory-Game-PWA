@@ -4,6 +4,7 @@
   "scope": "/Memory-Game-PWA/",
   "start_url": "/Memory-Game-PWA/index.html",
   "display": "fullscreen",
+  "orientation": "landscape",
   "background_color": "#358a55",
   "description": "Memory matching game for Portsmouth Natural History Museum",
   "theme_color": "#358a55",
