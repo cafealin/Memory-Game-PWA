@@ -1,23 +1,10 @@
-html,
-body {
-	overflow-y: hidden;
-	overflow-x: hidden;
-	height: 100%;
-	width: 100%;
-}
-
 body {
 	background: #77d66a;
 	font-family: 'Permanent Marker', cursive;
-	font-size: 14pt;
 }
 
 h1 {
 	font-family: 'Permanent Marker', cursive;
-}
-
-h4 {
-	font-size: 1.5rem;
 }
 
 .btn-secondary {
@@ -66,7 +53,7 @@ h4 {
 	width: 6rem;
 	background: #000;
 	;
-	font-size: 0;
+	/* font-size: 0; */
 	color: #ffffff;
 	border-radius: 5px;
 	cursor: pointer;
@@ -91,13 +78,13 @@ h4 {
 }
 
 .deck .card.show {
-	font-size: 33px;
+	/* font-size: 33px; */
 }
 
 .deck .card.match {
 	cursor: default;
 	background: #23ff48;
-	font-size: 33px;
+	/* font-size: 33px; */
 	animation-name: rubberBand;
 	-webkit-backface-visibility: visible !important;
 	backface-visibility: visible !important;
@@ -410,4 +397,12 @@ h4 {
 		width: 180px;
 		height: 180px;
 	}
+}
+
+.collection-container {
+	width: 70%;
+}
+
+.card {
+	background-color: rgb(0, 194, 0);
 }
